@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-ivory: #F4EDE1;
+    --color-cream: #ECE1CF;
+    --color-sand: #FAF6EF;
+    --color-beige: #ECE1CF;
+    --color-sage: #5E7F68;
+    --color-sage-light: #5E7F68;
+    --color-sage-dark: #173B28;
+    --color-forest: #173B28;
+    --color-forest-light: #224932;
+    --color-gold: #C7A24A;
+    --color-gold-muted: #C7A24A;
+    --color-charcoal: #1E2921;
+    --color-muted: #6F766F;
+    --color-crisis: #C94B4B;
+  }
+
+  html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F4EDE1;
+  }
+
+  body {
+    background-color: #F4EDE1;
+    color: #1E2921;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-serif-subtle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ECE1CF;
+}
+::-webkit-scrollbar-thumb {
+  background: #5E7F68;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #173B28;
+}
+
+/* Custom UI Utilities */
+.glass-panel {
+  background: rgba(244, 237, 225, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(94, 127, 104, 0.15);
+}
+
+.glass-panel-dark {
+  background: rgba(23, 59, 40, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(199, 162, 74, 0.15);
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Soft Glow Effects */
+.glow-sage {
+  box-shadow: 0 0 40px -10px rgba(49, 93, 60, 0.2);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px -10px rgba(201, 168, 78, 0.25);
+}
+
+/* Interactive breathing animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Emotion-Reactive Multi-Phase Micro-Interactions (Step 6G) */
+@keyframes moodGreat {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  25% { transform: translateY(-5px) scale(1.14) rotate(-3deg); }
+  55% { transform: translateY(-2px) scale(1.08) rotate(3deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+/* 😌 Calm / Peaceful slow breathing scale */
+@keyframes moodGood {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.10); }
+  50% { transform: scale(1.14); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes moodOkay {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  30% { transform: translateY(-3px) scale(1.10) rotate(-2deg); }
+  65% { transform: translateY(-1px) scale(1.04) rotate(1deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+@keyframes moodLow {
+  0% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(5px) scale(0.96); }
+  70% { transform: translateY(2px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes moodStressed {
+  0% { transform: translateX(0) scale(1); }
+  20% { transform: translateX(-4px) scale(1.05); }
+  40% { transform: translateX(4px) scale(1.05); }
+  60% { transform: translateX(-2px) scale(1.02); }
+  80% { transform: translateX(1px) scale(1.01); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+@keyframes moodAnxious {
+  0% { transform: translateX(0) scale(1); }
+  25% { transform: translateX(2.5px) translateY(-1px) scale(1.04); }
+  50% { transform: translateX(-2.5px) scale(1.04); }
+  75% { transform: translateX(1px) scale(1.02); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+.animate-mood-great {
+  animation: moodGreat 0.7s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+.animate-mood-good {
+  animation: moodGood 0.8s ease-in-out 1;
+}
+
+.animate-mood-okay {
+  animation: moodOkay 0.7s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+.animate-mood-low {
+  animation: moodLow 0.75s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+.animate-mood-stressed {
+  animation: moodStressed 0.7s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+.animate-mood-anxious {
+  animation: moodAnxious 0.75s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mood-great,
+  .animate-mood-good,
+  .animate-mood-okay,
+  .animate-mood-low,
+  .animate-mood-stressed,
+  .animate-mood-anxious {
+    animation: none !important;
+  }
+}
